@@ -1,8 +1,61 @@
+@font-face {
+    font-family: 'Lilita One';
+    src: url('fonts/LilitaOne.woff2') format('woff2'),
+        url('fonts/LilitaOne.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 * {
     padding: 0;
     margin: 0;
 }
 
+:root {
+    --light-color: #e7eaf6;
+    --second-color: #a2a8d3;
+    --third-color: #38598b;
+    --dark-color: #113f67;
+    font-family: Lilita One, sans-serif;
+}
+
 .main-container {
-    
+    display: grid;
+    grid-template-rows: 100px auto;
+    height: 100vh;
+}
+
+.heading {
+    background-color: var(--third-color);
+    font-size: 1.5rem;
+    color:var(--light-color) ;
+    display:flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.heading button {
+    margin-left: auto;
+    appearance: none;
+    font-family: Lilita One, sans-serif;
+    color: var(--light-color);
+    width: 175px;
+    background-color: transparent;
+    border: 0;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    height: 50px;
+}
+
+.heading button:hover {
+    background-color: var(--dark-color);
+    cursor: pointer;
+}
+
+.library-container {
+    background-color: var(--second-color);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-rows: 200px;
 }

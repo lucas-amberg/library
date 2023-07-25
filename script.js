@@ -1,4 +1,5 @@
 let myLibrary = [];
+let formHidden = true;
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -12,43 +13,17 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 const libraryContainer = document.querySelector(".library-container");
-let readButton = document.querySelectorAll(".book-button")
+let readButton = document.querySelectorAll(".book-button");
 
-addBookToLibrary("The Hobbit", "J.R.R. Tolkein", 262, true);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("The Hobbit", "J.R.R. Tolkein", 262, true);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("The Hobbit", "J.R.R. Tolkein", 262, true);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("The Hobbit", "J.R.R. Tolkein", 262, true);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("The Hobbit", "J.R.R. Tolkein", 262, true);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("The Hobbit", "J.R.R. Tolkein", 262, true);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("The Hobbit", "J.R.R. Tolkein", 262, true);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
-addBookToLibrary("Dune", "Frank Herbert", 896, false);
+const addBookButton = document.querySelector(".add-book");
+const titleInput = document.getElementById("title");
+const authorInput = document.getElementById("author");
+const pagesInput = document.getElementById("pages");
+const readInput = document.getElementById("read");
+const formContainer = document.querySelector(".form-container");
+const bookForm = document.querySelector(".book-form");
+const closeForm = document.querySelector(".close-form");
+const openForm = document.querySelector(".open-form");
 
 updateLibrary();
 
@@ -95,3 +70,44 @@ function updateLibrary(){
     })
 }
 
+addBookButton.addEventListener("click", () => {
+    if (titleInput.value === "" || 
+    authorInput.value === "" || 
+    pagesInput.value === "") {
+        return;
+    }
+    else {
+        addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, readInput.checked);
+        updateLibrary();
+        toggleForm();
+    }
+})
+
+closeForm.addEventListener("click", () => {
+    toggleForm();
+})
+
+openForm.addEventListener("click", () => {
+    toggleForm();
+})
+
+function toggleForm() {
+    if (formHidden === false) {
+        bookForm.setAttribute("style", "display: none;");
+        formContainer.setAttribute("style", "display: none;");
+        formHidden = true;
+    }
+    else {
+        bookForm.setAttribute("style", "");
+        formContainer.setAttribute("style", "");
+        formHidden = false;
+    }
+    clearForm();
+}
+
+function clearForm() {
+    titleInput.value = "";
+    authorInput.value = "";
+    pagesInput.value = "";
+    readInput.checked = false;
+}

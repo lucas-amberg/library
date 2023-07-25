@@ -65,7 +65,7 @@ body {
     gap: 30px;
     padding: 20px;
     justify-items: center;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .library-book {
@@ -92,10 +92,96 @@ body {
     font-family: inherit;
 }
 
+.read-button:hover,
+.unread-button:hover {
+    cursor: pointer;
+}
+
 .read-button {
     background-color: rgba(120, 255, 58, 0.432);
 }
 
 .unread-button {
     background-color: rgba(255, 58, 58, 0.432);;
+}
+
+.form-container {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.book-form {
+    position:fixed;
+    border-radius: 20px;
+    width:300px;
+    height: 400px;
+    background-color: var(--dark-color);
+    bottom: 25%;
+    box-shadow: 0px 0px 10px 2px black;
+}
+
+form {
+    color: var(--light-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+form input[type="text"], form input[type="num"]{
+    height: 2rem;
+    appearance: none;
+    width: 140px;
+    border:0;
+    border-radius: 5px;
+    text-align: center;
+    background-color: var(--light-color);
+}
+
+form .add-book {
+    appearance: none;
+    width: 140px;
+    height: 2rem;
+    border-radius: 10px;
+    border: 0;
+    font-family: Lilita One;
+    background-color: var(--second-color);
+}
+
+form .add-book:hover {
+    cursor: pointer;
+    background-color: var(--third-color);
+    color: var(--light-color);
+}
+
+.close-form {
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    border: 0;
+    appearance: none;
+    background-color: transparent;
+    font-family: Lilita One;
+    margin-left: auto;
+    position: absolute;
+    left: 255px;
+    bottom: -10px;
+    color: var(--second-color)
+}
+
+.close-form:hover {
+    color: var(--light-color);
+    cursor: pointer;
+}
+
+.close-form-container {
+    display: flex;
+    width: 300px;
+    position: relative;
 }

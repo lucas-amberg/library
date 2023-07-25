@@ -20,6 +20,10 @@
     font-family: Lilita One, sans-serif;
 }
 
+body {
+    overflow: hidden;
+}
+
 .main-container {
     display: grid;
     grid-template-rows: 100px auto;
@@ -58,4 +62,40 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-template-rows: 200px;
+    gap: 30px;
+    padding: 20px;
+    justify-items: center;
+    overflow: scroll;
+}
+
+.library-book {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    border-radius:15px;
+    height: 200px;
+    width: 175px;
+}
+
+.read-button,
+.unread-button {
+    appearance: none;
+    width: 100px;
+    height: 25px;
+    border-radius: 5px;
+    border: 0;
+    color: white;
+    font-family: inherit;
+}
+
+.read-button {
+    background-color: rgba(120, 255, 58, 0.432);
+}
+
+.unread-button {
+    background-color: rgba(255, 58, 58, 0.432);;
 }
